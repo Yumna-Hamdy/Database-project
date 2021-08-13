@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>ICU | HOME</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="./assets/img/favicon.png" rel="icon">
+  <link href="./assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='assets/vendor/icofont/icofont.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='assets/vendor/owl.carousel/assets/owl.carousel.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='assets/vendor/boxicons/css/boxicons.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='assets/vendor/venobox/venobox.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='assets/vendor/aos/aos.css') }}">
+
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/style.css') }}">
+<script>
+  function redirectTo(){
+     var parameter1 = '{{data.3}}'
+    window.location.href="http://127.0.0.1:5000/"+parameter1;
+
+  }
+</script>
+
+ 
+</head>
+
+<body>
+
+  <header id="header" class="fixed-top">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+
+      <h1 class="logo"><a href="http://127.0.0.1:5000/">ICU</a></h1>
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              Doctor
+            </a>
+            <div class="dropdown-menu">
+              {% if data.3 == "adminProfile" %}
+              <a class="dropdown-item" href="http://127.0.0.1:5000/adddoctor" >Add Doctor</a>
+              <a class="dropdown-item" href="http://127.0.0.1:5000/doctorPortal" >Doctor Portal</a>
+              <a class="dropdown-item" href="http://127.0.0.1:5000/addCheckUp" >Relate Doctor to Patient</a>
+              <a class="dropdown-item" href="http://127.0.0.1:5000/viewDoctorsTable" >View Doctors Table</a>
+              {% else %}
+              <a class="dropdown-item" href="http://127.0.0.1:5000/viewDoctor" >View Doctors</a>
+              {% endif %}                
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              Nurse
+            </a>
+            <div class="dropdown-menu">
+              {% if data.3 == "adminProfile" %}
+              <a class="dropdown-item" href="http://127.0.0.1:5000/addnurse" >Add Nurse</a>
+              <a class="dropdown-item" href="http://127.0.0.1:5000/nursePortal" >Nurse Portal</a>
+              <a class="dropdown-item" href="http://127.0.0.1:5000/addCare" >Relate Nurse to Patient</a>
+              <a class="dropdown-item" href="http://127.0.0.1:5000/viewNurseTable" >View Nurses Table</a>
+              {% else %}
+              <a class="dropdown-item" href="http://127.0.0.1:5000/viewNurse" >View Nurses</a> 
+              {% endif %}                
+            </div>
+          </li>
+
+          {% if data.3 == "adminProfile" %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                Patient
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="http://127.0.0.1:5000/addpatient" >Add Patient</a>
+                <a class="dropdown-item" href="http://127.0.0.1:5000/patientPortal" >Patient Portal</a>
+                <a class="dropdown-item" href="http://127.0.0.1:5000/addCare" >Relate Nurse to Patient</a>
+                <a class="dropdown-item" href="http://127.0.0.1:5000/home" >Relate Doctor to Patient</a>
+                <a class="dropdown-item" href="http://127.0.0.1:5000/viewPatientTable" >View Patients Table</a>                
+                           
+              </div>            
+            </li>
+            {% endif %}           
+
+
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                  Engineer
+                </a>
+                <div class="dropdown-menu">
+                  {% if data.3 == "adminProfile" %}
+                  <a class="dropdown-item" href="http://127.0.0.1:5000/addengineer" >Add Engineer</a>
+                  <a class="dropdown-item" href="http://127.0.0.1:5000/engineerPortal" >Engineer Portal</a>
+                  <a class="dropdown-item" href="http://127.0.0.1:5000/viewengineerTable" >View Engineers</a>  
+                  <a class="dropdown-item" href="http://127.0.0.1:5000/engtodev" >Relate Engineer to Device</a>
+                  {% else %}
+                  <a class="dropdown-item" href="http://127.0.0.1:5000/viewengineer" >View Engineers</a>  
+                  {% endif %}                
+                </div>
+            </li>            
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                  Devices
+                </a>
+                <div class="dropdown-menu">
+                  {% if data.3 == "adminProfile" %}
+                  <a class="dropdown-item" href="http://127.0.0.1:5000/adddevice" >Add Device</a>
+                  <a class="dropdown-item" href="http://127.0.0.1:5000/devicePortal">Device Portal</a>
+                  <a class="dropdown-item" href="http://127.0.0.1:5000/viewdeviceTable" >View Devices Table</a>
+                  <a class="dropdown-item" href="http://127.0.0.1:5000/engtodev" >Relate Engineers to Device</a>
+                  {% else %}
+                  <a class="dropdown-item" href="http://127.0.0.1:5000/viewDevice" >View Devices</a>
+                  {% endif %} 
+                </div>
+            </li>
+
+             {% if data.3 == "adminProfile" %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                Medications
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="http://127.0.0.1:5000/medicationsSignup" >Add New Medication</a>
+                <a class="dropdown-item" href="http://127.0.0.1:5000/medicationPortal" >Medication Portal</a>
+                <a class="dropdown-item" href="http://127.0.0.1:5000/viewMedicationTable" >View Medications Table</a>                                           
+              </div>            
+            </li>
+            {% endif %}
+
+            {% if data.3 == "adminProfile" %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                Relations
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="http://127.0.0.1:5000/viewCheckUps" >View Doctor Patients Table</a> 
+                <a class="dropdown-item" href="http://127.0.0.1:5000/viewCare" >View Nurse Patients Table</a> 
+                <a class="dropdown-item" href="http://127.0.0.1:5000/viewMaintenance" >View Engineer Device Table</a> 
+                <a class="dropdown-item" href="http://127.0.0.1:5000/viewmedstopats" >View Medications Patients Table</a> 
+              </div>
+            </li>
+            {% endif %}
+
+            {% if data.3 == "patientProfile" %}
+            <li class="nav-item dropdown">
+                <a class="nav-link" href="http://127.0.0.1:5000/contactus">
+                    Contact Us
+                </a>
+            </li>
+            {% endif %}
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                Hi, {{data.0}} 
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" onclick="redirectTo();" >My Profile</a>
+                {% if data.3 == "adminProfile" %}
+                <a class="dropdown-item" href="http://127.0.0.1:5000/addadmin">Add Admin</a>
+                <a class="dropdown-item" href="http://127.0.0.1:5000/dropData">Drop Data</a>
+                <a class="dropdown-item" href="http://127.0.0.1:5000/statistics">Statistics</a>
+                {% endif %}
+
+                {% if data != "" %}
+                <a class="dropdown-item" href="http://127.0.0.1:5000/login">Logout</a>
+                {% endif %}
+              </div>            
+            </li>
+            
+        </ul>
+    </nav>
+    
+    
+    </div>
+
+  </header><!-- End Header -->
+  
+    {%block main%}
+  <!-- ======= Hero Section ======= -->
+
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container d-flex flex-column align-items-center" data-aos="zoom-in" data-aos-delay="100">
+      {% if data == "" %}
+      <a href="http://127.0.0.1:5000/login" class="btn-about" >Login</a>
+      {% endif %}
+    </div>
+  </section>
+
+
+    {% endblock %}
+
+  <!-- ======= Footer ======= -->
+  <!-- <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong></strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer> -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
+
+  <!-- Vendor JS Files -->
+  
+  <script src="{{ url_for('static', filename='assets/vendor/jquery/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/jquery.easing/jquery.easing.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/php-email-form/validate.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/waypoints/jquery.waypoints.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/counterup/counterup.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/owl.carousel/owl.carousel.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/venobox/venobox.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/vendor/aos/aos.js') }}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+
+</body>
+
+</html>

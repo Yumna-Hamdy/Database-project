@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <link rel="stylesheet" href=" {{ url_for('static', filename='assets/css/addPatient.css') }}">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<body>
+  <div class="page-wrapper">
+    <div class="nav-wrapper">
+     <div class="grad-bar"></div>
+     <nav class="navbar">
+       <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/ICU_logo.jpg" alt="Company Logo">
+       <div class="menu-toggle" id="mobile-menu">
+         <span class="bar"></span>
+         <span class="bar"></span>
+         <span class="bar"></span>
+       </div>
+       <ul class="nav no-search">
+         <li class="nav-item"><a href="http://localhost:5000/">Home</a></li>
+         <li class="nav-item"><a href="http://localhost:5000/patientPortal">Patient Portal</a></li>
+         <li class="nav-item"><a href="http://localhost:5000/viewPatientTable">View Patient Table</a></li>
+         <li class="nav-item"><a href="http://localhost:5000/addCare">Add Nurse To Patient</a></li>
+       </ul>
+     </nav>
+     </div>
+     <section class="headline">
+       <h1>Add Patient</h1>
+     </section>
+     <section class="features">
+      <form action="http://127.0.0.1:5000/addpatient", method = 'POST',style="border:1px solid #ccc">
+        <div class="container">
+          <h2>{{error}}</h2>
+          <hr>
+      
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" class="form-control form-control-lg" name="pemail" required>
+      
+          <label for="ssn"><b>SSN</b></label>
+          <input type="text" placeholder="Enter SSN" class="form-control form-control-lg" name="pssn" required>
+      
+          <label for="ID"><b>ID</b></label>
+          <input type="text" placeholder="Enter ID" class="form-control form-control-lg" name="pID" min="1" required>
+      
+          <label for="Fnme"><b>First Name</b></label>
+          <input type="text" placeholder="Enter First Name" class="form-control form-control-lg" name="pfnme" required>
+      
+          <label for="Lname"><b>Last Name</b></label>
+          <input type="text" placeholder="Enter Last Name" class="form-control form-control-lg" name="pLname" required>
+      
+      
+          <label for="roomno"><b> Room Number </b></label>
+          <input type="text" placeholder="Enter Room Number" class="form-control form-control-lg" name="roomnumber" required>
+      
+          
+          <label for="telephone"><b> Telephone </b></label>
+          <input type="tel" placeholder="Enter telephone number" class="form-control form-control-lg" name="ptelephone" required>
+      
+          <br>
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" class="form-control form-control-lg" name="ppsw" required>
+      
+          <br>
+          <br>
+          <div class="clearfix">
+            <button type="submit" class="signupbtn">Sign Up</button>
+          </div>
+        </div>
+      </form>
+     </section>
+   </div>
+  
+
+
+</body>
+
+  <script>
+
+
+    $('.menu-toggle').click(function(){
+      $(".nav").toggleClass("mobile-nav");
+      $(this).toggleClass("is-active");
+    });
+  </script>
+
+
+
+
+</html>

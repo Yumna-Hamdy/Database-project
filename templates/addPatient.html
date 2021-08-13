@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      <title>ICU | Add Patient</title>
+   </head>
+
+   <body>
+      
+        <h1>Add Patient</h1>
+        <form action="http://localhost:5000/addPatient" method="POST">
+            
+            <label for="patientFName">First-Name:</label>
+            <input type="text" name="patientFName" value="">
+            <br/> <br/>
+
+            <label for="patientLName">Last-Name:</label>
+            <input type="text" name="patientLName" value="">
+            <br/> <br/>
+            
+            <label for="patientID">Id:</label> 
+            <input type="number" name="patientID">
+            <br/> <br/>
+
+            <label for="SSN">SSN:</label> 
+            <input type="number" name="SSN">
+            <br/> <br/>
+
+            <label for="email">Email:</label> 
+            <input type="email" name="email">
+            <br/> <br/>
+
+            <label for="password">Password:</label> 
+            <input type="password" name="password">
+            <br/> <br/>
+
+            <label for="PhoneNo">Phone Number:</label> 
+            <input type="tel" name="PhoneNo">
+            <br/> <br/>
+
+            <label for="RoomNo">Room Number:</label> 
+            <input type="number" name="RoomNo">
+            <br/> <br/>
+
+            <input type="submit" value="Submit">
+        </form> 
+        
+        <a href="http://127.0.0.1:5000/patientPortal">Back</a>
+   </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+   <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      <title>ICU | View Patient</title>
+   </head>
+
+   <body>
+    <div class="container">
+        <h1>All Patients</h1>
+        <div class="card-deck">
+            {% for record in data.rec %}
+            <div class="card">
+              <img src="https://image.freepik.com/free-vector/doctor-icon-avatar-white_136162-58.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">{{record.1}} {{record.2}}</h5>
+                <p class="card-text">ID: {{record.0}}</p>
+                <p class="card-text">Room Number: {{record.6}}</p>
+                <p class="card-text"><small class="text-muted">Patient</small></p>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+    </div>
+   </body>
+</html>

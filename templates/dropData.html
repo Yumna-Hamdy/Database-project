@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+   <head>
+    <link rel="stylesheet" href=" {{ url_for('static', filename='assets/css/dropData.css') }}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+      <title>ICU | Drop Data</title>
+   </head>
+    <body>
+        <div class="page-wrapper">
+          <div class="nav-wrapper">
+          <div class="grad-bar"></div>
+          <nav class="navbar">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/ICU_logo.jpg" alt="Company Logo">
+            <div class="menu-toggle" id="mobile-menu">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </div>
+            <ul class="nav no-search">
+              <li class="nav-item"><a href="http://localhost:5000/">Home</a></li>
+              <li class="nav-item"><a href="http://localhost:5000/statistics">Statistics</a></li>
+            </ul>
+          </nav>
+          </div>
+          <section class="headline">
+          </section>
+
+          <section class="features">
+            <div class="container">
+                <h1>Drop Data From Database</h1>
+                <hr>
+                <form action="/dropData"  method="POST">
+                    <label for="type"><b>Select Item</b></label>
+                    <select id="type" name="type" class="custom-select custom-select-lg mb-3">
+                        <option value="admin">Admin</option>
+                        <option value="device">Device</option>
+                        <option value="doctor">Doctor</option>
+                        <option value="engineer">Engineer</option>
+                        <option value="medication">Medication</option>
+                        <option value="nurse">Nurse</option>
+                        <option value="patient">Patient</option>
+                    </select>
+                    <label for="ID"><b>ID</b></label>
+                    <input type="text" placeholder="Enter ID" class="custom-select custom-select-lg mb-3" name="userID" required>  
+                    
+                    <br><br>
+                    <button type="submit" class="btn btn-danger" style="width: 250px; height: 45px; font-weight: 700;">Drop</button>
+                </form>
+            </div>
+          </section>
+        </div>
+    </body>
+
+    <script>
+      $("#search-icon").click(function() {
+      $(".nav").toggleClass("search");
+      $(".nav").toggleClass("no-search");
+      $(".search-input").toggleClass("search-active");
+    });
+
+    $('.menu-toggle').click(function(){
+      $(".nav").toggleClass("mobile-nav");
+      $(this).toggleClass("is-active");
+    });
+    </script>
+  
+</html>
+

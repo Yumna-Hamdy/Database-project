@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+   <head>
+    <link rel="stylesheet" href=" {{ url_for('static', filename='assets/css/viewengineer.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans:400,800' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      <title>ICU | View Engineers</title>
+   </head>
+    <body>
+        <div class="page-wrapper">
+          <div class="nav-wrapper">
+          <div class="grad-bar"></div>
+          <nav class="navbar">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/ICU_logo.jpg" alt="Company Logo">
+            <div class="menu-toggle" id="mobile-menu">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </div>
+            <ul class="nav no-search">
+              <li class="nav-item"><a href="http://localhost:5000/">Home</a></li>
+              <li class="nav-item"><a href="http://localhost:5000/viewDoctor">View Doctors</a></li>
+              <li class="nav-item"><a href="http://localhost:5000/viewNurse">View Nurses</a></li>
+              <li class="nav-item"><a href="http://localhost:5000/viewDevice">View Devices</a></li>
+              <li class="nav-item"><a href="http://localhost:5000/contactus">Contact Us</a></li>
+            </ul>
+          </nav>
+          </div>
+          <section class="headline">
+              <h1>All Engineers</h1>
+          </section>
+          <section class="features">
+              <div class="row">
+                {% for record in engineers_data.rec %}
+                <div class="column">
+                  <div class="card">
+                    <img src="data:image/jpeg;base64,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" class="card-img-top" alt="eng-avatar">
+                    <p>ID: {{record.0}}</p>
+                    <p>Name: {{record.1}} {{record.2}}</p>
+                    <p>Phone Number: 0{{record.6}}</p>
+                    <p><small class="text-muted">Engineer</small></p>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+          </section>
+        </div>
+    </body>
+
+    <script>
+      $("#search-icon").click(function() {
+      $(".nav").toggleClass("search");
+      $(".nav").toggleClass("no-search");
+      $(".search-input").toggleClass("search-active");
+    });
+    $('.menu-toggle').click(function(){
+      $(".nav").toggleClass("mobile-nav");
+      $(this).toggleClass("is-active");
+    });
+    </script>
+  
+</html>
+

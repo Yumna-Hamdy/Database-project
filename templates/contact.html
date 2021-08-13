@@ -1,0 +1,33 @@
+{% extends "home.html" %}
+
+{%block main%}
+
+  <section id="contact" class="contact">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <h2 style = "padding-top:50px">Contact</h2>
+      </div>
+      <div class="row mt-5">
+        <div class="col-lg-8 mt-5 mt-lg-0">
+          <form action="http://127.0.0.1:5000/contactus" method="POST" role="form">
+            <div class="form-row">
+              <div class="col-md-6 form-group">
+              <input type="text" class="form-control" name="pat_code" id="pat_code" placeholder="Your ID" />
+                <div class="validate"></div>
+              </div>            
+            </div>
+            
+            <div class="form-group">
+              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+              <div class="validate"></div>
+            </div>
+            
+            <div class="text-center"><button type="submit" class="btn btn-primary">Send Message</button></div> 
+          </form>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Contact Section -->
+  
+{% endblock %}
+

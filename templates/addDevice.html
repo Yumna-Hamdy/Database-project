@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <html>
+    <head>
+     <link rel="stylesheet" href=" {{ url_for('static', filename='assets/css/addDevice.css') }}">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans:400,800' rel='stylesheet' type='text/css'>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+       <title>ICU | Device Portal</title>
+    </head>
+
+<body>
+  <div class="page-wrapper">
+    <div class="nav-wrapper">
+     <div class="grad-bar"></div>
+     <nav class="navbar">
+       <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/ICU_logo.jpg" alt="Company Logo">
+       <div class="menu-toggle" id="mobile-menu">
+         <span class="bar"></span>
+         <span class="bar"></span>
+         <span class="bar"></span>
+       </div>
+       <ul class="nav no-search">
+         <li class="nav-item"><a href="http://localhost:5000/">Home</a></li>
+         <li class="nav-item"><a href="http://localhost:5000/devicePortal">Device Portal</a></li>
+         <li class="nav-item"><a href="http://localhost:5000/viewdeviceTable">View Device Table</a></li>
+         <li class="nav-item"><a href="http://localhost:5000/engtodev">Add Engineer To Patient</a></li>
+       </ul>
+     </nav>
+     </div>
+     <section class="headline">
+       <h1>Add Device</h1>
+     </section>
+     <section class="features">
+        <form method="POST">
+          <div class="mb-3">
+            <label for="dev_id" class="form-label">Device ID:</label>
+            <input type="number" class="form-control" id="dev_id" min="6000" max="6999" name="device_id">
+          </div>
+
+          <div class="mb-3">
+            <label for="devicename_id" class="form-label">Device Name:</label>
+            <input type="text" class="form-control" id="devicename_id" name="device_name" >
+          </div>
+    
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+     </section>
+   </div>
+</body>
+
+  <script>
+
+
+    $('.menu-toggle').click(function(){
+      $(".nav").toggleClass("mobile-nav");
+      $(this).toggleClass("is-active");
+    });
+  </script>
+</html>
